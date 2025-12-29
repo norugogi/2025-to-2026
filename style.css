@@ -24,11 +24,9 @@ html, body {
 
 #front {
   background-image: url("images/front.png");
-  opacity: 1;
 }
 
 #back {
   background-image: url("images/back.png");
-  opacity: 0;
-  pointer-events: none;
 }
+
