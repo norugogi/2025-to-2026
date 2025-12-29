@@ -1,31 +1,48 @@
+/* 기본 리셋 */
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  background-color: #000;
 }
 
+/* 전체 컨테이너 */
 #container {
-  position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  position: relative;
   cursor: pointer;
 }
 
+/* 앞면 / 뒷면 공통 */
 #front, #back {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
+  inset: 0;
   background-position: center;
-  transition: opacity 0.8s ease;
+  background-repeat: no-repeat;
+  background-size: contain; /* 이미지 안 잘리게 */
+  transition: opacity 0.6s ease;
 }
 
+/* 앞면 */
 #front {
-  background-image: url("images/front.png");
+  background-image: url("images/front.png"); /* ✅ 수정 */
+  opacity: 1;
+  z-index: 2;
 }
 
+/* 뒷면 */
 #back {
-  background-image: url("images/back.png");
+  background-image: url("images/back.png"); /* ✅ 수정 */
+  opacity: 0;
+  z-index: 1;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  #front, #back {
+    background-size: contain;
+  }
 }
