@@ -1,17 +1,48 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <title>From 2025 to 2026</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+/* 기본 리셋 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
 
-<div id="container">
-  <div id="front"></div>
-  <div id="back"></div>
-</div>
+/* 전체 컨테이너 */
+#container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  cursor: pointer;
+}
 
-<script src="script.js"></script>
-</body>
-</html>
+/* 앞면 / 뒷면 공통 */
+#front, #back {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain; /* ⭐ 이미지 안 잘리게 */
+  transition: opacity 0.6s ease;
+}
+
+/* 앞면 */
+#front {
+  background-image: url("front.png"); /* 앞면 이미지 */
+  opacity: 1;
+  z-index: 2;
+}
+
+/* 뒷면 */
+#back {
+  background-image: url("back.png"); /* 타임라인 이미지 */
+  opacity: 0;
+  z-index: 1;
+}
+
+/* 모바일 대응 (선택) */
+@media (max-width: 768px) {
+  #front, #back {
+    background-size: contain;
+  }
+}
